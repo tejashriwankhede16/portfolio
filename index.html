@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tejashri Wankhede | Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+:root{
+--primary:#c8a2c8;
+--bg:#faf6fb;
+--text:#2d2d2d;
+--card:#ffffff;
+--shadow:0 15px 35px rgba(0,0,0,0.08);
+}
+
+body.dark{
+--primary:#d8b4ff;
+--bg:#1c1a23;
+--text:#f2f2f2;
+--card:#2a2735;
+--shadow:0 15px 35px rgba(0,0,0,0.4);
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Poppins', sans-serif;
+background:var(--bg);
+color:var(--text);
+transition:0.3s;
+}
+
+/* NAVBAR */
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 10%;
+backdrop-filter:blur(10px);
+background:rgba(255,255,255,0.7);
+z-index:1000;
+}
+
+nav h2{
+font-family:'Playfair Display';
+}
+
+nav ul{
+display:flex;
+gap:25px;
+list-style:none;
+}
+
+nav ul li a{
+text-decoration:none;
+color:var(--text);
+font-weight:500;
+transition:0.3s;
+}
+
+nav ul li a:hover{
+color:var(--primary);
+}
+
+.toggle{
+background:var(--primary);
+color:white;
+padding:6px 15px;
+border-radius:20px;
+cursor:pointer;
+font-size:14px;
+}
+
+/* SECTIONS */
+
+section{
+padding:120px 10% 80px;
+}
+
+h1,h2,h3{
+font-family:'Playfair Display';
+}
+
+/* HERO */
+
+.hero{
+display:flex;
+align-items:center;
+justify-content:space-between;
+flex-wrap:wrap;
+}
+
+.hero-text{
+max-width:600px;
+}
+
+.hero h1{
+font-size:48px;
+margin-bottom:20px;
+}
+
+.btn{
+padding:12px 28px;
+border-radius:30px;
+border:none;
+cursor:pointer;
+transition:0.3s;
+margin-right:15px;
+margin-top: 30px;
+}
+
+.btn-primary{
+background:var(--primary);
+color:white;
+}
+
+/* .btn-primary:hover{
+transform:translateY(-3px);
+} */
+
+/* CARDS */
+
+.card{
+background:var(--card);
+padding:30px;
+border-radius:25px;
+box-shadow:var(--shadow);
+transition:0.4s;
+transform-style:preserve-3d;
+}
+
+/* SKILLS */
+
+.skills-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.skill{
+margin-bottom:20px;
+}
+
+.skill-title{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:5px;
+}
+
+.progress{
+background:#eee;
+height:8px;
+border-radius:20px;
+overflow:hidden;
+}
+
+.progress-bar{
+height:8px;
+background:var(--primary);
+width:0;
+transition:1.5s ease;
+}
+
+/* CONTACT */
+
+.contact-item{
+display:flex;
+align-items:center;
+gap:15px;
+margin-bottom:15px;
+}
+.emali{
+    font-size:15px;
+
+}
+
+.contact-item i{
+color:var(--primary);
+font-size:20px;
+}
+
+/* FADE */
+
+.fade{
+opacity:0;
+transform:translateY(40px);
+transition:0.8s ease;
+}
+
+.fade.show{
+opacity:1;
+transform:translateY(0);
+}
+
+@media(max-width:768px){
+.hero{
+flex-direction:column;
+text-align:center;
+}
+nav ul{
+display:none;
+}
+}
+/* PROJECTS */
+
+.projects-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:35px;
+}
+
+.project-card{
+transition:0.5s;
+cursor:pointer;
+}
+
+.project-card:hover{
+transform:translateY(-15px) scale(1.02);
+box-shadow:0 25px 45px rgba(0,0,0,0.15);
+}
+/* PROJECTS */
+
+.projects-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:40px;
+}
+
+.project-card{
+overflow:hidden;
+transition:0.5s;
+cursor:pointer;
+position:relative;
+}
+
+.project-img{
+overflow:hidden;
+border-radius:20px;
+}
+
+.project-img img{
+width:100%;
+height:220px;
+object-fit:cover;
+transition:0.6s ease;
+}
+
+.project-card:hover .project-img img{
+transform:scale(1.1);
+}
+
+.project-content{
+padding-top:20px;
+}
+
+/* Smooth Lift */
+.project-card:hover{
+transform:translateY(-15px) scale(1.02);
+box-shadow:0 30px 50px rgba(0,0,0,0.15);
+}
+
+/* Gradient Overlay Animation */
+.project-card::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:linear-gradient(135deg, rgba(200,162,200,0.15), transparent);
+opacity:0;
+transition:0.5s;
+border-radius:25px;
+}
+
+.project-card:hover::before{
+opacity:1;
+}
+
+
+/* ROUND IMAGE */
+/* .hero-image img{ */
+    /* width: 350px;
+    height: 350px;
+    border-radius: 50%;   /* ⭐ This makes image round */
+    /* object-fit: cover;    image proper fit */
+    /* box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    border: 8px solid white;
+} */
+
+@media(max-width: 768px){
+    .hero{
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-content{
+        max-width: 100%;
+    }
+
+    .hero-image img{
+        width: 250px;
+        height: 250px;
+        margin-top: 30px;
+    }
+}
+
+
+
+</style>
+</head>
+
+<body>
+
+<nav>
+<h2>PORTFOLIO.</h2>
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#contact">Contact</a></li>
+<li><a href="#projects">Projects</a></li>
+</ul>
+<div class="toggle" onclick="toggleMode()">Dark</div>
+</nav>
+
+<section id="home" class="hero fade">
+<div class="hero-text">
+<h1>Hello, I'm Tejashri Wankhede</h1>
+<h3>BCA Graduate | Web Developer</h3>
+<p>Passionate about building modern, responsive and elegant web applications.</p>
+
+<a href="twr (1).pdf" download>
+<button class="btn btn-primary">
+<i class="fas fa-download"></i> Download CV
+</button>
+</a>
+
+</section>
+
+<section id="about" class="fade">
+<h2>About Me</h2>
+<br>
+<div class="card tilt">
+<p>
+Hello! I'm Tejashri Wankhede, a passionate and dedicated web developer with a Bachelor of Computer Applications (BCA) degree. I enjoy creating clean, responsive, and user-friendly websites that provide real value to users.
+I have strong knowledge of both frontend and backend development. I love turning ideas into beautiful and functional digital experiences. I am always eager to learn new technologies and improve my problem-solving skills.
+
+</p>
+</div>
+</section>
+<section id="projects" class="fade">
+<h2>Projects</h2>
+<br>
+
+<div class="projects-grid">
+
+<!-- Project 1 -->
+<div class="card tilt project-card">
+<div class="project-img">
+<img src="https://images.unsplash.com/photo-1557804506-669a67965ba0" alt="Leave Management System">
+</div>
+<div class="project-content">
+<h3>Leave Management System</h3>
+<p>
+A web-based application for managing employee leave requests and approvals using HTML, CSS, JavaScript and PHP. Includes admin dashboard and approval workflow.
+</p>
+
+</button>
+</a>
+</div>
+</div>
+
+<!-- Project 2 -->
+<div class="card tilt project-card">
+<div class="project-img">
+<img src="imt4.jpg" alt="Shri Sutra Website">
+</div>
+<div class="project-content">
+<h3>Shri Sutra – Crochet Brand Website</h3>
+<p>
+Website developed for a small crochet brand to showcase handmade products with elegant and aesthetic feminine design. Fully responsive layout.
+</p>
+
+</a>
+</div>
+</div>
+
+</div>
+</section>
+
+
+<section id="skills" class="fade">
+<h2>Skills</h2>
+<br>
+<div class="skills-grid">
+
+<div class="card tilt">
+<h3>Frontend</h3>
+<br>
+
+<div class="skill">
+<div class="skill-title">
+<span><i class="fab fa-html5"></i> HTML</span>
+<span class="counter" data-target="90">0%</span>
+</div>
+<div class="progress"><div class="progress-bar" data-width="90%"></div></div>
+</div>
+
+<div class="skill">
+<div class="skill-title">
+<span><i class="fab fa-css3-alt"></i> CSS</span>
+<span class="counter" data-target="85">0%</span>
+</div>
+<div class="progress"><div class="progress-bar" data-width="85%"></div></div>
+</div>
+
+<div class="skill">
+<div class="skill-title">
+<span><i class="fab fa-js"></i> JavaScript</span>
+<span class="counter" data-target="80">0%</span>
+</div>
+<div class="progress"><div class="progress-bar" data-width="80%"></div></div>
+</div>
+
+</div>
+
+<div class="card tilt">
+<h3>Backend</h3>
+<br>
+
+<div class="skill">
+<div class="skill-title">
+<span><i class="fab fa-js"></i> JavaScript</span>
+<span class="counter" data-target="75">0%</span>
+</div>
+<div class="progress"><div class="progress-bar" data-width="75%"></div></div>
+</div>
+
+<div class="skill">
+<div class="skill-title">
+<span><i class="fab fa-php"></i> PHP</span>
+<span class="counter" data-target="70">0%</span>
+</div>
+<div class="progress"><div class="progress-bar" data-width="70%"></div></div>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<section id="contact" class="fade">
+<h2>Contact</h2>
+<br>
+<div class="card tilt">
+<div class="contact-item">
+    <div class="email">
+<i class="fas fa-envelope"></i> tejashriwankhede62@gmail.com
+</div>
+</div>
+<div class="contact-item">
+<i class="fas fa-phone"></i> +91 9834361241
+</div>
+<div class="contact-item">
+<i class="fas fa-location-dot"></i> Mumbai, Maharashtra, India
+</div>
+</div>
+</section>
+
+<footer style="text-align:center;padding:20px;">
+© 2026 Tejashri Wankhede | Ultra Premium Portfolio
+</footer>
+
+<script>
+
+/* DARK MODE */
+function toggleMode(){
+document.body.classList.toggle("dark");
+}
+
+/* SCROLL FADE */
+const faders=document.querySelectorAll(".fade");
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("show");
+animateSkills();
+}
+});
+},{threshold:0.3});
+faders.forEach(fade=>observer.observe(fade));
+
+/* SKILL ANIMATION */
+function animateSkills(){
+document.querySelectorAll(".progress-bar").forEach(bar=>{
+bar.style.width=bar.getAttribute("data-width");
+});
+
+document.querySelectorAll(".counter").forEach(counter=>{
+let target=+counter.getAttribute("data-target");
+let count=0;
+let increment=target/100;
+let update=setInterval(()=>{
+count+=increment;
+if(count>=target){
+counter.innerText=target+"%";
+clearInterval(update);
+}else{
+counter.innerText=Math.floor(count)+"%";
+}
+},20);
+});
+}
+
+/* 3D TILT EFFECT */
+// document.querySelectorAll(".tilt").forEach(card=>{
+// card.addEventListener("mousemove",e=>{
+// let rect=card.getBoundingClientRect();
+// let x=e.clientX-rect.left;
+// let y=e.clientY-rect.top;
+// let centerX=rect.width/2;
+// let centerY=rect.height/2;
+// let rotateX=(y-centerY)/15;
+// let rotateY=(centerX-x)/15;
+// // card.style.transform=rotateX(${rotateX}deg) rotateY(${rotateY}deg);
+// });
+// card.addEventListener("mouseleave",()=>{
+// card.style.transform="rotateX(0) rotateY(0)";
+// });
+// });
+/* 3D TILT EFFECT */
+document.querySelectorAll(".tilt").forEach(card=>{
+card.addEventListener("mousemove",e=>{
+let rect=card.getBoundingClientRect();
+let x=e.clientX-rect.left;
+let y=e.clientY-rect.top;
+let centerX=rect.width/2;
+let centerY=rect.height/2;
+let rotateX=(y-centerY)/20;
+let rotateY=(centerX-x)/20;
+// card.style.transform=rotateX(${rotateX}deg) rotateY(${rotateY}deg);
+});
+card.addEventListener("mouseleave",()=>{
+card.style.transform="rotateX(0) rotateY(0)";
+});
+});
+</script>
+
+</body>
+</html>
